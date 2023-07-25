@@ -29,13 +29,22 @@
             marker.stye.left = e.offsetLeft + 'px';
             marker.style.width = eoffsetWidth+ 'px'
             marker.style.display = "block;"
-            marker.style.filter = 'hue-rotation'
+            marker.style.filter = 'hue-rotation('+ Math.random() *360 +'deg)'
         }
 item.forEach(link => {
     link.addEventListener ("click", (e) => {
     indicator(e.target);
 })
 })
+
+function addActiveClass() {
+item.forEach((i) =>
+i.classList.remove('active'));
+this.classList.add('active');
+}
+
+item.forEach((i) =>
+i.addEventListener('click', addActiveClass)); 
     </script>
 </body>
 </html>
