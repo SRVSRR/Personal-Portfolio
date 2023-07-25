@@ -12,16 +12,44 @@
     <body>
         <header>
             <a href="projetcs.html" class="logo">SRVSRR</a>
-            <nav class="wrapper">
-                <ul>
-                    <li>
-                        <a href="about me.html">About Me</a>
-                        <a href="projetcs.html">Projetcs</a>
-                        <a href="">Balls</a>
-                    </li>
-                </ul>
-                <a href="projetcs.html" class="cases">Cases</a>
-            </nav>
+                <nav>
+                    <a class="active" href="#">Home</a>
+                    <a href="#">Home</a>
+                    <a href="#">Menu</a>
+                    <a href="#">Projects</a>
+                    <a href="#">Home</a>
+                    <div id="indicator"></div>
+                </nav>
+                <script>
+                    let marker = document.querySelector(      '#indicator');
+                    let nav = document.querySelector('nav');
+                    let item = document.querySelectorAll('nav a')
+            
+                    nav.onclick = function() {
+                        marker.classList.toggle('change');
+                    }
+            
+                    function indicator(e){
+                        marker.style.left = e.offsetLeft + 'px';
+                        marker.style.width = e.offsetWidth+ 'px'
+                        marker.style.display = "block;"
+                        marker.style.filter = 'hue-rotation('+ Math.random() *360 +'deg)'
+                    }
+            item.forEach(link => {
+                link.addEventListener ("click", (e) => {
+                indicator(e.target);
+            })
+            })
+            
+            function addActiveClass() {
+            item.forEach((i) =>
+            i.classList.remove('active'));
+            this.classList.add('active');
+            }
+            
+            item.forEach((i) =>
+            i.addEventListener('click', addActiveClass)); 
+                </script>
         </header>
         <main>
             <section class="projects-links">
